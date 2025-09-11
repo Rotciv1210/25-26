@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etNombre"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:inputType="text"
-        android:autofillHints="nombre"
-        android:hint="@string/nombre"
-        android:text="@string/nombre"/>
-
-    <EditText
-        android:id="@+id/etApellidos"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:inputType="text"
-        android:autofillHints="apellidos"
-        android:hint="@string/apellidos"
-        android:text="@string/apellidos" />
-
-    <EditText
-        android:id="@+id/etFechaNacimiento"
+    <TextView
+        android:id="@+id/mensajeBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableEnd="@android:drawable/ic_menu_month"
-        android:autofillHints="(dd/mm/yyyy)"
-        android:text="@string/fecha"
-        android:inputType="date"
-        android:nestedScrollingEnabled="false" />
+        android:text="Bienvenido!"
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="101dp" />
 
     <Button
-        android:id="@+id/btnCalcular"
+        android:id="@+id/botonDias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_redondo"
-        android:text="@string/boton" />
+        android:text="calcular Dias de Nacimiento"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="286dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/eleccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elige lo que quieras hacer"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="177dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="396dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
