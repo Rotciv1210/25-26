@@ -7,27 +7,37 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="Nombre" />
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:inputType="text"
+        android:autofillHints="nombre"
+        android:hint="@string/nombre"
+        android:text="@string/nombre"/>
 
     <EditText
         android:id="@+id/etApellidos"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="Apellidos" />
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:inputType="text"
+        android:autofillHints="apellidos"
+        android:hint="@string/apellidos"
+        android:text="@string/apellidos" />
 
     <EditText
         android:id="@+id/etFechaNacimiento"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="Fecha de nacimiento (dd/mm/yyyy)" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@android:drawable/ic_menu_month"
+        android:autofillHints="(dd/mm/yyyy)"
+        android:text="@string/fecha"
+        android:inputType="date"
+        android:nestedScrollingEnabled="false" />
 
     <Button
         android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcular días desde nacimiento"
-        android:layout_gravity="center" />
+        android:background="@drawable/btn_redondo"
+        android:text="@string/boton" />
 
 </LinearLayout>

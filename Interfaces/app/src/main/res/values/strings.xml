@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PrimerEjemplo</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="fecha">Fecha de nacimiento (dd/mm/yyyy)</string>
+    <string name="boton">Calcular dias desde Nacimiento</string>
 </resources>
