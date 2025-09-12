@@ -1,6 +1,7 @@
 package com.example.calculoimc;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,8 +67,18 @@ public class MainActivity extends AppCompatActivity {
                         error =true;
                     }
 
+                    double imc = 0;
+                    try{
+                        imc = (peso.getProgress() / (altura.getProgress() / 100.0)) * (altura.getProgress() / 100.0);
+                    } catch (Exception e){
+
+                        mensajeError("No se puede dividir por 0", v);
+                    }
+
+
+
                     if(!error){
-                        txtSaludo.setText("Hola "+ tratamiento + editTextNombre.getText()+ " tu IMC es: ");
+                        txtSaludo.setText("Hola "+ tratamiento + editTextNombre.getText()+ " tu IMC es: " + imc);
                     }
                 } else {
                     mensajeError("No puedes dejar el nombre vacio",v);
@@ -79,7 +90,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                txtSaludo.setText(progress);
+                Log.d("Victor ",""+progress);
+                txtSaludo.setText(String.valueOf(progress));
+
+            }
+
+
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        altura.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                Log.d("Victor",""+ progress);
+                txtSaludo.setText(String.valueOf(progress));
             }
 
             @Override

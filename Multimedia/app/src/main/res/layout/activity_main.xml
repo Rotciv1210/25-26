@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="117dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginEnd="27dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
@@ -24,21 +24,22 @@
         android:id="@+id/txtSaludo"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_marginBottom="169dp"
+        android:background="#DE1414"
         android:text=""
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/altura" />
 
     <Button
         android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="254dp"
         android:text="Calcular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/altura" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -60,27 +61,26 @@
     </RadioGroup>
 
     <SeekBar
-        android:id="@+id/peso"
+        android:id="@+id/altura"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="274dp"
-        android:layout_marginBottom="7dp"
-        android:max="200"
+        android:layout_height="24dp"
+        android:max="250"
         android:min="20"
-        app:layout_constraintBottom_toTopOf="@+id/altura"
-        app:layout_constraintEnd_toEndOf="@+id/altura"
-        app:layout_constraintStart_toStartOf="parent"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalcular"
+        app:layout_constraintStart_toStartOf="@+id/peso"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/altura"
-        android:layout_width="151dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="410dp"
-        android:max="250"
+        android:id="@+id/peso"
+        android:layout_width="149dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="2dp"
+        android:max="200"
         android:min="20"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/peso" />
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/altura"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalcular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
