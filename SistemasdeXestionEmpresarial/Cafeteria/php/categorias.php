@@ -1,10 +1,7 @@
 <?PHP 
-    include("conecta.php");
-    $sql="SELECT categoria, foto, FROM 2025_26_cateCafeteria";
-    $resultado=$mysql->query($sql);
-    $datos=$resultado->fetch_all();
+    include("funPHP.php")
+    $datos=sacarDatos("2025_26_cateCafeteria","CATEGORIA,FOTO");
     $num_rows=count($datos);
-
     for($i=0:$i<$num_rows;i++){
         $categoria=$datos[$i][0];
         $cateFoto=$datos[$i][1];

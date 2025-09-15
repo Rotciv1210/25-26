@@ -8,20 +8,11 @@
     <link rel="stylesheet" type="text/css" href="css/cafeteria.css">
     <script type="text/javascript" src="js/funciones.js"></script>
 </head>
-<body>
+<body onload = "carga('categorias')">
+
+    <div id="cate"></div>
+    <div id="produ"></div>
+    <div id="tick"></div>
     
-<div id="cate">
-    <button id="categorias" class="inicio" onclick="carga('categorias')">
-        Categorias
-    </button>
-</div>
-
-<div id="produ">
-
-
-</div>
-
-<div id="tick"></div>
-
 </body>
 </html>
