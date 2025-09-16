@@ -13,7 +13,7 @@ public class ejercicio2 {
             Scanner scanner = new Scanner(System.in);
 
         while(true){
-        System.out.println("=== MENÚ PRINCIPAL ===");
+        System.out.println("Elige que quieres mirar");
         System.out.println("1. DLL");
         System.out.println("2. EXE");
         System.out.println("3. Salir del programa");

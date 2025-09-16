@@ -13,6 +13,7 @@
     <div id="cate"></div>
     <div id="produ"></div>
     <div id="tick"></div>
+    <div id="factura"></div>
     
 </body>
 </html>
