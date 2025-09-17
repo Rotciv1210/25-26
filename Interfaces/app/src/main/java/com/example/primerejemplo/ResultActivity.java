@@ -10,32 +10,54 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ResultActivity extends AppCompatActivity {
 
     private TextView tvResultado;
-    private Button btnSalir;
+    private TextView tvTitulo;
+    private Button btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-        // Inicializar vistas
+        tvTitulo = findViewById(R.id.tvTitulo);
         tvResultado = findViewById(R.id.tvResultado);
-        btnSalir = findViewById(R.id.btnSalir);
+        btnVolver = findViewById(R.id.btnVolver);
 
-        // Obtener datos del Intent
-        String nombre = getIntent().getStringExtra("nombre");
-        String apellidos = getIntent().getStringExtra("apellidos");
-        long diasDesdeNacimiento = getIntent().getLongExtra("dias", 0);
+        Intent intent = getIntent();
 
-        // Mostrar el resultado
-        tvResultado.setText("Hola, " + nombre + " " + apellidos + ".\nHan pasado " + diasDesdeNacimiento + " días desde tu nacimiento.");
+        if (intent.hasExtra("dias")) {
+            mostrarResultadoDiasNacimiento(intent);
+        } else if (intent.hasExtra("imc")) {
+            mostrarResultadoIMC(intent);
+        } else {
+            tvTitulo.setText("Error");
+            tvResultado.setText("No se recibieron datos para mostrar");
+        }
 
-        // Configurar el botón de salir
-        btnSalir.setOnClickListener(new View.OnClickListener() {
+        btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cierra la aplicación
-                finishAffinity();  // Cierra todas las actividades y la aplicación
+                finish();
             }
         });
+    }
+
+    private void mostrarResultadoDiasNacimiento(Intent intent) {
+        String nombre = intent.getStringExtra("nombre");
+        String apellidos = intent.getStringExtra("apellidos");
+        long diasDesdeNacimiento = intent.getLongExtra("dias", 0);
+
+        tvTitulo.setText("Resultado - Días de Nacimiento");
+        tvResultado.setText("Hola, " + nombre + " " + apellidos +
+                ".\n\nHan pasado " + diasDesdeNacimiento + " días desde tu nacimiento.");
+    }
+
+    private void mostrarResultadoIMC(Intent intent) {
+        String nombre = intent.getStringExtra("nombre");
+        double imc = intent.getDoubleExtra("imc", 0);
+        String clasificacion = intent.getStringExtra("clasificacion");
+
+        tvTitulo.setText("Resultado - IMC");
+        tvResultado.setText("Hola, " + nombre +
+                "\n\nTu IMC es: " + String.format("%.2f", imc) +
+                "\nClasificación: " + clasificacion);
     }
 }

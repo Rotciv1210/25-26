@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/mensajeBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="41dp"
         android:text="Bienvenido!"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="101dp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/eleccion"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botonDias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="calcular Dias de Nacimiento"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="286dp" />
+        android:layout_marginTop="90dp"
+        android:text="Calcular Dias de Nacimiento"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eleccion" />
 
     <TextView
         android:id="@+id/eleccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
         android:text="Elige lo que quieras hacer"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="177dp" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mensajeBienvenida"/>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:layout_width="271dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="64dp"
+        android:text="Calcular IMC"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/teal_700"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonDias" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

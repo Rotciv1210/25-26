@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         editTextNombre = findViewById(R.id.editTextNombre);
         txtSaludo = findViewById(R.id.txtSaludo);
         btnCalcular = findViewById(R.id.btnCalcular);
@@ -75,10 +74,21 @@ public class MainActivity extends AppCompatActivity {
                         mensajeError("No se puede dividir por 0", v);
                     }
 
+                    String clasificacion;
+                    if(imc < 18.5){
+                        clasificacion = "Bajo peso";
+                    } else if(imc < 25){
+                        clasificacion = "Peso ideal";
+                    } else if(imc < 30){
+                        clasificacion = "Sobrepeso";
+                    } else {
+                        clasificacion = "Obesidad";
+                    }
+
 
 
                     if(!error){
-                        txtSaludo.setText("Hola "+ tratamiento + editTextNombre.getText()+ " tu IMC es: " + imc);
+                        txtSaludo.setText("Hola "+ tratamiento + editTextNombre.getText()+ " tu IMC es: " + imc+clasificacion);
                     }
                 } else {
                     mensajeError("No puedes dejar el nombre vacio",v);

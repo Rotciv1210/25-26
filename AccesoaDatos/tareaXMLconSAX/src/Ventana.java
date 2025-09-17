@@ -1,46 +1,93 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class Ventana extends JFrame {
 
-    public Ventana(){
+   private JComboBox<String> comboCategorias;
+   private JList<String> listaTitulos;
+   private JLabel imagenLabel;
+   private JButton botonCargar;
 
-        setTitle("XML con SAX");
-        setSize(700,400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+   public Ventana(Map<String, List<Item>> categoriaMapa){
 
-        setLayout(new BorderLayout());
+       setTitle("XML con SAX");
+       setSize(700,400);
+       setDefaultCloseOperation(EXIT_ON_CLOSE);
+       setLocationRelativeTo(null);
 
-        JPanel panelIzquierdo =  new JPanel(new BorderLayout());
+       setLayout(new BorderLayout());
 
-        JComboBox<String> comboCategorias = new JComboBox<>(new String[]{"Item 1","Item 2","Item 3","Item 4","Item 5"});
-        comboCategorias.setForeground(Color.RED);
-        comboCategorias.setFont(new Font("Arial",Font.BOLD,14));
-        comboCategorias.setBorder(BorderFactory.createTitledBorder("Categoria"));
+       JPanel panelIzquierdo = new JPanel(new BorderLayout());
 
-        JList<String> listaTitulos = new JList<>(new String[]{"Item 1","Item 2","Item 3","Item 4","Item 5"});
-        listaTitulos.setFont(new Font("Arial",Font.BOLD,16));
-        listaTitulos.setForeground(Color.RED);
-        JScrollPane scrollLista = new  JScrollPane(listaTitulos);
-        scrollLista.setBorder(BorderFactory.createTitledBorder("Titulo"));
+       comboCategorias = new JComboBox<>(categoriaMapa.keySet().toArray(new String[0]));
+       comboCategorias.setForeground(Color.RED);
+       comboCategorias.setBorder(BorderFactory.createTitledBorder("Categoria"));
 
-        panelIzquierdo.add(comboCategorias,BorderLayout.NORTH);
-        panelIzquierdo.add(scrollLista,BorderLayout.CENTER);
+       listaTitulos = new JList<>();
+       listaTitulos.setForeground(Color.RED);
+       JScrollPane listaScroll = new JScrollPane(listaTitulos);
+       listaScroll.setBorder(BorderFactory.createTitledBorder("Titulo"));
 
-        JPanel panelDerecho = new JPanel(new BorderLayout());
+       panelIzquierdo.add(comboCategorias, BorderLayout.NORTH);
+       panelIzquierdo.add(listaScroll,BorderLayout.CENTER);
 
-        JLabel imagenLabel = new JLabel();
-        imagenLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        imagenLabel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+       JPanel panelDerecho = new JPanel(new BorderLayout());
 
-        JButton botonCargar = new JButton("Cargar foto al azar");
+       imagenLabel = new JLabel();
+       imagenLabel.setHorizontalAlignment(SwingConstants.CENTER);
+       imagenLabel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
 
-        panelDerecho.add(imagenLabel,BorderLayout.CENTER);
-        panelDerecho.add(botonCargar,BorderLayout.SOUTH);
+       botonCargar = new JButton("Cargar foto al azar");
 
-        add(panelIzquierdo, BorderLayout.WEST);
-        add(panelDerecho, BorderLayout.CENTER);
+       panelDerecho.add(imagenLabel, BorderLayout.CENTER);
+       panelDerecho.add(botonCargar, BorderLayout.SOUTH);
 
-    }
+       add(panelIzquierdo, BorderLayout.WEST);
+       add(panelDerecho, BorderLayout.CENTER);
+
+       comboCategorias.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               String categoria = (String)comboCategorias.getSelectedItem();
+               List<Item> lista = categoriaMapa.get(categoria);
+               if(lista != null){
+                   listaTitulos.setListData(lista.stream().map(Item::getTitulo).toArray(String[]::new));
+               }
+
+           }
+       });
+
+       botonCargar.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               String categoria = (String)comboCategorias.getSelectedItem();
+               List<Item> lista = categoriaMapa.get(categoria);
+               if(lista != null && !lista.isEmpty()){
+                   Random random = new Random();
+                   Item imagenRandom = lista.get(random.nextInt(lista.size()));
+                   try{
+                       URL url = new URL(imagenRandom.getURLimagen());
+                       BufferedImage img = ImageIO.read(url);
+                       ImageIcon icono = new ImageIcon(img.getScaledInstance(300,300,Image.SCALE_SMOOTH));
+                       imagenLabel.setIcon(icono);
+                       imagenLabel.setText("");
+                   } catch (Exception ex){
+                       imagenLabel.setText("Error al cargar la imagen");
+                   }
+               }
+
+           }
+       });
+       if(!categoriaMapa.isEmpty()){
+           comboCategorias.setSelectedIndex(0);
+       }
+   }
 }
