@@ -1,3 +1,5 @@
+var impo=parseFloat(0);
+
 function carga(tipo){
     switch(tipo){
         case 'categorias':
@@ -70,7 +72,7 @@ function pro(producto, precio){
 
     function totalizar(pre,cant){
 
-        let impo=parseFloat(0);
+        
         impo+=impo+parseFloat(pre)*parseFloat(cant);
         $('#enviarFact').remove();
         if(('#importe').val()==null){
