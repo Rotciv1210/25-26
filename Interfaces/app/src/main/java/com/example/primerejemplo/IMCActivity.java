@@ -17,6 +17,8 @@ public class IMCActivity extends AppCompatActivity {
     private RadioButton rbMujer;
     private EditText editTextPeso;
     private EditText editTextAltura;
+    private Button btnVolver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class IMCActivity extends AppCompatActivity {
         rbMujer = findViewById(R.id.rbMujer);
         editTextPeso = findViewById(R.id.peso);
         editTextAltura = findViewById(R.id.altura);
+        btnVolver = findViewById(R.id.btnVolver);
+
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +40,16 @@ public class IMCActivity extends AppCompatActivity {
                 calcularIMC();
             }
         });
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Cierra esta actividad y regresa a la anterior (MainActivity)
+            }
+        });
     }
+
+
 
     private void calcularIMC() {
         String tratamiento = "";

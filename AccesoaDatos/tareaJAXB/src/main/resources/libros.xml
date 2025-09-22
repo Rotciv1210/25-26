@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="libreria.xsd">
+
+    <libro id="3">
+        <titulo>El Principito</titulo>
+        <autor>Antoine de Saint-Exupéry</autor>
+        <isbn>978-0-15-601219-5</isbn>
+        <precio>12.99</precio>
+        <anio>1943</anio>
+    </libro>
+
+    <libro id="4">
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <isbn>978-0-452-28423-4</isbn>
+        <precio>15.75</precio>
+        <anio>1949</anio>
+    </libro>
+
+    <libro id="5">
+        <titulo>La sombra del viento</titulo>
+        <autor>Carlos Ruiz Zafón</autor>
+        <isbn>978-84-08-05248-1</isbn>
+        <precio>21.00</precio>
+        <anio>2001</anio>
+    </libro>
+
+</libreria>

@@ -28,11 +28,9 @@ public class Ventana extends JFrame {
        JPanel panelIzquierdo = new JPanel(new BorderLayout());
 
        comboCategorias = new JComboBox<>(categoriaMapa.keySet().toArray(new String[0]));
-       comboCategorias.setForeground(Color.RED);
        comboCategorias.setBorder(BorderFactory.createTitledBorder("Categoria"));
 
        listaTitulos = new JList<>();
-       listaTitulos.setForeground(Color.RED);
        JScrollPane listaScroll = new JScrollPane(listaTitulos);
        listaScroll.setBorder(BorderFactory.createTitledBorder("Titulo"));
 

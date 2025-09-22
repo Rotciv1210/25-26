@@ -33,16 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Hombre"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"/>
+            android:layout_weight="1"/>
 
         <RadioButton
             android:id="@+id/rbMujer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Mujer"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"/>
+            android:layout_weight="1"/>
 
     </RadioGroup>
 
@@ -77,5 +75,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/altura"
         android:layout_marginTop="32dp"/>
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="31dp"
+        android:backgroundTint="@color/purple_500"
+        android:text="Volver"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

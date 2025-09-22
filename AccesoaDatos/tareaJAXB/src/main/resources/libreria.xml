@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="libreria.xsd">
+
+    <libro id="1">
+        <titulo>Cien Años de Soledad</titulo>
+        <autor>Gabriel García Márquez</autor>
+        <isbn>978-3-16-148410-0</isbn>
+        <precio>19.99</precio>
+        <anio>1967</anio>
+    </libro>
+
+    <libro id="2">
+        <titulo>Don Quijote de la Mancha</titulo>
+        <autor>Miguel de Cervantes</autor>
+        <isbn>978-0-14-243723-0</isbn>
+        <precio>25.50</precio>
+        <anio>1605</anio>
+    </libro>
+
+</libreria>
