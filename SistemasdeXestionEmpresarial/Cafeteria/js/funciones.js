@@ -3,18 +3,17 @@ var impo=parseFloat(0);
 function carga(tipo){
     switch(tipo){
         case 'categorias':
-            alert ("Has escogido categorias")
             $('#cate').load('php/categorias.php');
-        break;
+        break;  
         
         case 'productos':
 
         break;
     }
 }
-
-function muestraPro(categoriaEscogida){
     
+function muestraPro(categoriaEscogida){
+
     $('#produ').load('php/productos.php',{cate:categoriaEscogida});
 
 }

@@ -1,5 +1,5 @@
-<?
-$servidor="mysql.colexio-karbo.com";
+<?php
+$servidor="mysql.vpereira.colexio-karbo.com";
 $usuario="karbo_vpereira";
 $contra="Alumno*2024";
 $bbdd="karbo_vpereira";
