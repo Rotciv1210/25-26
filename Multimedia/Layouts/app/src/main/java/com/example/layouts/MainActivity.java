@@ -1,7 +1,10 @@
 package com.example.layouts;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtMinima;
 
+    Button btnSiguiente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         txtEstadoCielo = findViewById(R.id.txtEstadoCielo);
         txtMaxima = findViewById(R.id.txtMaxima);
         txtMinima = findViewById(R.id.txtMinima);
+        btnSiguiente = findViewById(R.id.btnSiguiente);
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Pagina2.class);
+                intent.putExtra("nombre", "Victor");
+                startActivity(intent);
+            }
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
