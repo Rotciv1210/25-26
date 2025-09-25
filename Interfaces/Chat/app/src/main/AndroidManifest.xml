@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChat">
         <activity
+            android:name=".LoginUserNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginOTPActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginFormNumberActivity"
+            android:name=".LoginPhoneNumberActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

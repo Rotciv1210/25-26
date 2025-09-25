@@ -66,14 +66,14 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/phone_icon"
+        android:src="@drawable/otp_icon"
         app:tint="@color/primario"
         android:layout_weight="20"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Introduzca su numero de telefono"
+        android:text="Introduzca el codigo"
         android:layout_gravity="center_vertical"
         android:letterSpacing="0.08"
         android:textStyle="bold"
@@ -87,20 +87,18 @@
         android:gravity="center"
         android:layout_weight="5">
 
-        <com.hbb20.CountryCodePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:ccp_showFlag="false"
-            app:ccp_showNameCode="false"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Numero de telefono"
-            android:inputType="phone"
+            android:hint="Codigo"
+            android:inputType="number"
+            android:maxLength="6"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_rounded_corner"
-            android:elevation="5dp"/>
+            android:elevation="5dp"
+            android:id="@+id/login_otp"/>
 
     </LinearLayout>
 
@@ -109,23 +107,33 @@
         android:layout_height="100dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_weight="20">
+        android:layout_weight="10">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enviar Codigo"
-            android:background="@drawable/btn_rounded_corner"/>
+            android:text="SIGUIENTE"
+            android:background="@drawable/btn_rounded_corner"
+            android:id="@+id/login_next_btn"/>
 
         <ProgressBar
             android:layout_width="32dp"
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/primario"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:id="@+id/login_progress_bar"/>
 
 
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
+        android:text="Reestable el el codigo en 30 segundos"
+        android:id="@+id/resend_otp_textView"/>
 
 
 </LinearLayout>

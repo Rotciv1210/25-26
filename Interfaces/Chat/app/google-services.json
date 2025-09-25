@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "392198776147",
+    "project_id": "appchat-backend",
+    "storage_bucket": "appchat-backend.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392198776147:android:bc1766635e38ff9f852da6",
+        "android_client_info": {
+          "package_name": "com.example.appchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1ip0Ry3E98St_bv9vFxwvgIe13-hbC4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
